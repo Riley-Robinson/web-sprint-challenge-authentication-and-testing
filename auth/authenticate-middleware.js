@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
     jwt.verify(token, secrets.jwtSecret, (err, decodedToken) => {
       if (err) {
         console.log(err);
-        res.status(401).json({ message: "No access granted" });
+        res.status(401).json({ message: "NO BAD HUMAN" });
       } else {
         req.decodedJwt = decodedToken;
         next();
