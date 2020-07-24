@@ -12,7 +12,10 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.use('/api/auth', authRouter);
-server.use('/api/jokes', authenticate, jokesRouter);
+server.use("/api/auth", authRouter);
+server.use("/api/jokes", authenticate, jokesRouter);
 
-module.exports = server;
+server.get("/", (req, res) => {
+  res.status(200).json({ api: "up", environment: process.env.DB_ENV });
+});
+module.exports = server; 
